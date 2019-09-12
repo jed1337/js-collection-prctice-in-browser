@@ -1,5 +1,21 @@
 'use strict';
 
 function collectSameElements(collectionA, objectB) {
-  return 'Implement the practice require, and begin changing code in this row';
+  let sameElements = [];
+  for(let elementA of mapTo("key", collectionA)){
+    if(objectB["value"].includes(elementA)){
+      sameElements.push(elementA);
+    }
+  }
+  return sameElements;
+
 }
+
+function mapTo(propertyName, collectionA) {
+  let mappedCollection = [];
+  for (let dictionary of collectionA){
+    mappedCollection.push(dictionary[propertyName]);
+  }
+  return mappedCollection;
+}
+
