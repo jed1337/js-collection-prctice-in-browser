@@ -3,22 +3,14 @@
 function countSameElements(collection) {
   let sameElementArr = [];
   for (let letter of collection) {
-    if (!containsLetterDictionary(letter, sameElementArr)) {
-      sameElementArr.push({key: letter, count: 0});
-    }
     let letterDictionary = getLetterDictionary(letter, sameElementArr);
-    letterDictionary.count++;
+    if(letterDictionary != null){
+      letterDictionary.count++;
+    } else{
+      sameElementArr.push({key: letter, count: 1});
+    }
   }
   return sameElementArr;
-}
-
-function containsLetterDictionary(letter, sameElementArr) {
-  for (let letterDictionary of sameElementArr) {
-    if (letterDictionary.key === letter) {
-      return true;
-    }
-  }
-  return false;
 }
 
 function getLetterDictionary(letter, sameElementArr) {
