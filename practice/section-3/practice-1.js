@@ -1,5 +1,12 @@
 'use strict';
 
 function createUpdatedCollection(collectionA, objectB) {
-  return 'Implement the practice require, and begin changing code in this row';
+  let updatedCollection = Array.from(collectionA);
+
+  for(let dictionary of updatedCollection){
+    if(objectB.value.includes(dictionary.key)){
+      dictionary.count--;
+    }
+  }
+  return updatedCollection;
 }
