@@ -3,11 +3,10 @@
 function createUpdatedCollection(collectionA, objectB) {
   let collectionC = countSameElements(collectionA);
 
-  let subtractValue = 1;
   for(let dictionary of collectionC){
     if(objectB.value.includes(dictionary.key)){
-      dictionary.count-=subtractValue;
-      subtractValue = updateSubtractValue(subtractValue);
+      let fullThreeMinusOne = Math.floor(dictionary.count/3);
+      dictionary.count-=fullThreeMinusOne;
     }
   }
   return collectionC;
@@ -52,12 +51,4 @@ function getLetterDictionary(letter, sameElementArr) {
     }
   }
   return null;
-}
-
-function updateSubtractValue(subtractValue) {
-  subtractValue++;
-  if (subtractValue % 4 === 0) {
-    subtractValue = 1;
-  }
-  return subtractValue;
 }
